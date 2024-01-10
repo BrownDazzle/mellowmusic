@@ -50,7 +50,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
       <section id="events" className="wrapper my-8 flex flex-col gap-8 md:gap-12">
         <div className="flex w-full gap-5 md:flex-row">
-          <CategoryFilter category='Filter Category' />
+          <CategoryFilter category='Filter' />
           <Search />
         </div>
 

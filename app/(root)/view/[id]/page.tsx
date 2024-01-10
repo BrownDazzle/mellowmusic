@@ -3,7 +3,7 @@ import Collection from '@/components/shared/Collection';
 import DownloadButton from '@/components/ui/download-button';
 import { getEventById, getRelatedEventsByCategory, increaseEventViews } from '@/lib/actions/event.actions'
 import { IEvent } from '@/lib/database/models/event.model';
-import { cn, convertTimeAgo } from '@/lib/utils';
+import { cn, convertTimeAgo, formatViews } from '@/lib/utils';
 import { SearchParamProps } from '@/types'
 import { PauseCircleIcon, PlayCircleIcon } from 'lucide-react';
 import { Metadata } from 'next';
@@ -43,11 +43,11 @@ const EventDetails = async ({ params: { id }, searchParams }: SearchParamProps) 
               alt="hero image"
               width={800}
               height={800}
-              className="h-full min-h-[300px] max-h-[500px] object-cover object-center rounded-lg"
+              className="h-full min-h-[400px] max-h-[600px] object-cover object-center rounded-lg"
             />
           )}
           {event.category.name === "Video" && (
-            <video src={event.videoUrl} controls className="h-full min-h-[300px] max-h-[500px] object-cover object-center rounded-md" />
+            <video src={event.videoUrl} controls className="w-full h-full min-h-[400px] max-h-[600px] object-cover object-center rounded-sm" />
           )}
 
           <div className="flex w-full flex-col gap-8 p-5 md:p-10">
@@ -66,7 +66,7 @@ const EventDetails = async ({ params: { id }, searchParams }: SearchParamProps) 
                   <p className="p-medium-12 p-medium-15 text-grey-500">
                     {convertTimeAgo(event.createdAt)}
                   </p>
-                  {event.views >= 1 ? (<p className="p-medium-14 p-medium-18 text-grey-500">Views {event.views}</p>) : null}
+                  {event.views >= 1 ? (<p className="p-medium-14 p-medium-18 text-grey-500">{formatViews(event.views)} views</p>) : null}
                 </div>
                 {/*<p className="p-medium-18 ml-2 mt-2 sm:mt-0">
                 by{' '}

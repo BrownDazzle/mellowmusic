@@ -15,7 +15,7 @@ const Search = ({ placeholder = 'Search title...' }: { placeholder?: string }) =
     const delayDebounceFn = setTimeout(() => {
       let newUrl = '';
 
-      if(query) {
+      if (query) {
         newUrl = formUrlQuery({
           params: searchParams.toString(),
           key: 'query',
@@ -35,15 +35,17 @@ const Search = ({ placeholder = 'Search title...' }: { placeholder?: string }) =
   }, [query, searchParams, router])
 
   return (
-    <div className="flex-center min-h-[54px] w-full overflow-hidden rounded-full bg-grey-50 px-4 py-2">
-      <Image src="/assets/icons/search.svg" alt="search" width={24} height={24} />
-      <Input 
+    <div className="relative flex w-full">
+      <Image src="/assets/icons/search.svg" alt="search" width={24} height={14} />
+      <input
         type="text"
         placeholder={placeholder}
+        className="w-full focus:outline-none focus:border-blue-500 px-4 py-2 rounded-md"
         onChange={(e) => setQuery(e.target.value)}
-        className="p-regular-16 border-0 bg-grey-50 outline-offset-0 placeholder:text-grey-500 focus:border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
       />
+
     </div>
+
   )
 }
 

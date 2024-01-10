@@ -1,5 +1,6 @@
 "use client"
-import React from 'react';
+import { handleError } from '@/lib/utils';
+import React, { useState } from 'react';
 
 interface DownloadUrl {
     url: string
@@ -7,6 +8,7 @@ interface DownloadUrl {
 }
 
 const DownloadButton = ({ url, title }: DownloadUrl) => {
+    const [loading, setLoading] = useState(false)
     const handleDownload = async () => {
         try {
             // Fetch the file content
@@ -14,6 +16,7 @@ const DownloadButton = ({ url, title }: DownloadUrl) => {
 
             // Check if the request was successful
             if (response.ok) {
+                setLoading(true)
                 // Convert the response to a blob
                 const blob = await response.blob();
 
@@ -32,10 +35,13 @@ const DownloadButton = ({ url, title }: DownloadUrl) => {
                 // Remove the link and revoke the blob URL
                 document.body.removeChild(link);
                 URL.revokeObjectURL(blobUrl);
+                setLoading(false)
             } else {
+                handleError(response.status)
                 console.error(`Failed to fetch the file. Status: ${response.status}`);
             }
         } catch (error) {
+            handleError(error)
             console.error('Error during file download:', error);
         }
     };
@@ -46,7 +52,9 @@ const DownloadButton = ({ url, title }: DownloadUrl) => {
             className="bg-slate-900 hover:bg-slate-700 hover:cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-full my-5"
             onClick={handleDownload}
         >
-            Download
+            {loading ? (
+                'Processing...'
+            ) : ` Download`}
         </button>
     );
 };

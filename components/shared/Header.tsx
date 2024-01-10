@@ -12,7 +12,7 @@ const Header = () => {
     <header className="w-full border-b">
       <div className="wrapper flex items-center justify-between">
         <Link href="/" className="flex items-center">
-          <Image src="/apple.svg" alt="logo" width={64} height={20} />
+          <Image src="/apple.svg" alt="logo" width={44} height={15} />
           <p className='text-1xl text-semibold text-black'>MellowMusic</p>
         </Link>
 

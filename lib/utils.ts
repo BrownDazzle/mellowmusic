@@ -51,6 +51,24 @@ export const convertFileToUrl = (file: File) => URL.createObjectURL(file)
 
 export const convertTimeAgo = (time: Date) => format(time)
 
+export function formatViews(views: number) {
+  if (views < 1000) {
+    return views.toString(); // Less than 1k, just return the number
+  } else if (views < 1000000) {
+    // Between 1k and 1m, format in kilos
+    const kilos = (views / 1000).toFixed(1);
+    return `${kilos}k`;
+  } else if (views < 1000000000) {
+    // Between 1m and 1b, format in millions
+    const millions = (views / 1000000).toFixed(1);
+    return `${millions}M`;
+  } else {
+    // 1b and above, format in billions
+    const billions = (views / 1000000000).toFixed(1);
+    return `${billions}B`;
+  }
+}
+
 export const formatPrice = (price: string) => {
   const amount = parseFloat(price)
   const formattedPrice = new Intl.NumberFormat('en-US', {

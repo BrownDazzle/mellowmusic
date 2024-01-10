@@ -5,7 +5,7 @@ import { MouseEventHandler } from "react";
 import { Expand, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-import { cn, convertTimeAgo } from "@/lib/utils";
+import { cn, convertTimeAgo, formatViews } from "@/lib/utils";
 import { IEvent } from "@/lib/database/models/event.model";
 import IconButton from "../ui/icon-button";
 
@@ -41,7 +41,7 @@ const RelatedCard: React.FC<RelatedCard> = ({
             <div className="flex flex-col gap-4 px-2 justify-between items-center w-full">
                 <div className="w-full">
                     <div>
-                        <p className={cn(`font-semibold text-lg text-black`)}>{event.title}</p>
+                        <p className={cn(`font-semibold text-sm md:text-md text-black`)}>{event.title}</p>
                         <p className="text-sm text-gray-500">{event.category.name}</p>
                     </div>
                     {/* Price & Reiew */}
@@ -50,7 +50,7 @@ const RelatedCard: React.FC<RelatedCard> = ({
                     </div>
                 </div>
                 <div className="flex flex-row gap-y-5 justify-between ml-2 w-full">
-                    {event.views >= 1 ? (<p className="text-sm">Views {event.views}</p>) : null}
+                    {event.views >= 1 ? (<p className="text-sm">{formatViews(event.views)} views</p>) : null}
                     <p className="text-sm">{convertTimeAgo(event.createdAt)}</p>
                 </div>
             </div>
