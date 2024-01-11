@@ -7,6 +7,8 @@ export interface IEvent extends Document {
   genre: { _id: string, name: string, type: string };
   createdAt: Date;
   imageUrl: string;
+  videoUrl: string,
+  audioUrl: string,
   views: number,
   likes: string;
   socialUrl?: {
@@ -23,6 +25,8 @@ const EventSchema = new Schema({
   genre: { type: Schema.Types.ObjectId, ref: 'Genre' },
   createdAt: { type: Date, default: Date.now },
   imageUrl: { type: String, required: true },
+  videoUrl: { type: String },
+  audioUrl: { type: String },
   views: { type: Number, default: 0 },
   likes: { type: String },
   socialUrl: {

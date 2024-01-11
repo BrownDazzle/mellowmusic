@@ -1,5 +1,6 @@
 import AudioPlayer from '@/components/shared/AudioPlayer';
 import Collection from '@/components/shared/Collection';
+import VideoPlayer from '@/components/shared/VideoPlayer';
 import DownloadButton from '@/components/ui/download-button';
 import { getEventById, getRelatedEventsByCategory, increaseEventViews } from '@/lib/actions/event.actions'
 import { IEvent } from '@/lib/database/models/event.model';
@@ -8,9 +9,11 @@ import { SearchParamProps } from '@/types'
 import { PauseCircleIcon, PlayCircleIcon } from 'lucide-react';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import { useRef, useState } from 'react';
 
 
 const EventDetails = async ({ params: { id }, searchParams }: SearchParamProps) => {
+
   const event = await getEventById(id);
   await increaseEventViews(id);
 
@@ -47,7 +50,7 @@ const EventDetails = async ({ params: { id }, searchParams }: SearchParamProps) 
             />
           )}
           {event.category.name === "Video" && (
-            <video src={event.videoUrl} controls className="w-full h-full min-h-[400px] max-h-[600px] object-cover object-center rounded-sm" />
+            <VideoPlayer event={event} />
           )}
 
           <div className="flex w-full flex-col gap-8 p-5 md:p-10">
@@ -89,7 +92,7 @@ const EventDetails = async ({ params: { id }, searchParams }: SearchParamProps) 
 
       {/* EVENTS with the same category */}
       <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
-        <h2 className="h2-bold">Related {event.category.name === "Video" ? `${event.category.name}s` : event.category.name}</h2>
+        {/*<h2 className="h2-bold">Related {event.category.name === "Video" ? `${event.category.name}s` : event.category.name}</h2>*/}
 
         <Collection
           data={relatedEvents?.data}

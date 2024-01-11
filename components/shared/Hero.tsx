@@ -8,7 +8,6 @@ const MusicHero: React.FC = () => {
             <div className="text-center z-10">
                 <h1 className="text-2xl md:text-4xl font-extrabold text-white mb-4">Discover the Magic of Music</h1>
                 <p className="text-md md:text-lg text-gray-300 mb-8">Explore a world of melodies and rhythms</p>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Get Started</button>
             </div>
         </div>
     );
