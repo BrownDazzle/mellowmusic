@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   images: {
-    // domains: ['utfs.io'],
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
@@ -9,7 +10,10 @@ const nextConfig = {
         port: ''
       }
     ]
-  }
+  },
+  experimental: {
+    serverActions: true,
+  },
 }
 
 module.exports = nextConfig

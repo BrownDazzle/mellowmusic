@@ -30,7 +30,7 @@ const VideoPlayer = ({ event }: CardProps) => {
             <video
                 ref={videoRef}
                 src={event?.videoUrl}
-                className={`w-full h-full object-cover rounded-sm ${isPlaying ? 'opacity-100' : 'opacity-0'}`}
+                className={`w-full h-[50vh] object-cover rounded-md ${isPlaying ? 'opacity-100' : 'opacity-0'}`}
                 controls={isPlaying}
                 autoPlay={isPlaying}
                 loop

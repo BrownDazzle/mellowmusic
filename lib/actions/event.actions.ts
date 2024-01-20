@@ -146,22 +146,16 @@ export async function getAllEvents({ query, limit = 6, page, category, genre }: 
 }
 
 // GET EVENTS BY ORGANIZER
-export async function getEventsByUser({ userId, limit = 6, page }: GetEventsByUserParams) {
+export async function getEvents() {
   try {
     await connectToDatabase()
 
-    const conditions = { organizer: userId }
-    const skipAmount = (page - 1) * limit
-
-    const eventsQuery = Event.find(conditions)
+    const eventsQuery = Event.find()
       .sort({ createdAt: 'desc' })
-      .skip(skipAmount)
-      .limit(limit)
 
     const events = await populateEvent(eventsQuery)
-    const eventsCount = await Event.countDocuments(conditions)
 
-    return { data: JSON.parse(JSON.stringify(events)), totalPages: Math.ceil(eventsCount / limit) }
+    return JSON.parse(JSON.stringify(events))
   } catch (error) {
     handleError(error)
   }

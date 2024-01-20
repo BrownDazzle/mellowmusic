@@ -13,7 +13,7 @@ const Header = () => {
       <div className="wrapper flex items-center justify-between">
         <Link href="/" className="flex items-center">
           <Image src="/apple.svg" alt="logo" width={44} height={15} />
-          <p className='text-1xl text-semibold text-black'>MellowMusic</p>
+          <p className='text-1xl text-semibold text-black'>IkuVibes</p>
         </Link>
 
         {/*

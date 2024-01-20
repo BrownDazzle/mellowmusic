@@ -11,17 +11,17 @@ const Footer = () => {
         <div className="flex flex-col items-start justify-center gap-[10%] md:flex-row">
           <Link href="/" className="flex items-center">
             <Image src="/apple.svg" alt="logo" width={64} height={20} />
-            <p className='text-1xl text-semibold text-black'>MellowMusic</p>
+            <p className='text-1xl text-semibold text-black'>IkuVibes</p>
           </Link>
 
 
-          <div className='flex flex-wrap gap-10 sm:justify-between md:flex-1'>
+          <div className='flex flex-wrap gap-5 sm:justify-between md:flex-1'>
             {FOOTER_LINKS.map((columns) => (
               <FooterColumn title={columns.title} key={columns.title}>
                 <ul className="regular-14 flex flex-col gap-4 text-gray-30 text-sm text-bold">
                   {columns.links.map((link) => (
-                    <Link href="/" key={link}>
-                      {link}
+                    <Link href={link.href} key={link.value}>
+                      {link.value}
                     </Link>
                   ))}
                 </ul>
@@ -51,8 +51,8 @@ const Footer = () => {
 
               <ul className="regular-14 flex gap-4 text-gray-30">
                 {SOCIALS.links.map((link) => (
-                  <Link href="/" key={link}>
-                    <Image src={link} alt="logo" width={24} height={24} />
+                  <Link href="/" key={link.link}>
+                    <Image src={link.icon} alt="logo" width={24} height={24} />
                   </Link>
                 ))}
               </ul>
@@ -62,8 +62,8 @@ const Footer = () => {
         </div>
 
         <div className="border bg-gray-20" />
-        <Link href="/" >
-          <p className="regular-14 w-full text-center text-gray-30">2023 ActsCloud Inc. | All rights reserved</p>
+        <Link href="https://actscloudinc.com" target='_blank'>
+          <p className="regular-14 w-full text-center text-gray-30"><strong className='text-semibold text-1xl'> ActsCloud Inc. </strong>| &copy;2024 All rights reserved</p>
         </Link>
       </div>
     </footer>
@@ -77,7 +77,7 @@ type FooterColumnProps = {
 
 const FooterColumn = ({ title, children }: FooterColumnProps) => {
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-5 mt-5">
       <p className={cn(`font-semibold text-md text-black whitespace-nowrap`)} >{title}</p>
       {children}
     </div>

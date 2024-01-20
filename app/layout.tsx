@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 
@@ -10,17 +11,17 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'MellowMusic',
-  description: 'MellowMusic is a platform for free music and video downloads.',
-  icons: {
-    icon: '/apple.svg'
-  }
+  title: 'IkuVibes Music',
+  description: 'IkuVibes is a platform for free music and video streaming and downloads.',
+  /*icons: {
+    icon: '/assets/images/logo.svg'
+  }*/
 }
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">

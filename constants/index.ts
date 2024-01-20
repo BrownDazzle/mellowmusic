@@ -30,31 +30,30 @@ export const FOOTER_LINKS = [
   {
     title: 'Learn More',
     links: [
-      'About Mellow',
-      'Press Releases',
-      'Jobs'
+      { href: '/about', value: 'About IkuVibes' },
     ],
   },
   {
-    title: 'Our Community',
-    links: ['Artists', 'Promotions', 'Recording Studio'],
+    title: 'Contact',
+    links: [
+      { href: '/', value: '+260 973 548847' },
+    ],
   },
 ];
 
 export const FOOTER_CONTACT_INFO = {
-  title: 'Contact Us',
+  title: 'Email',
   links: [
-    { label: 'Admin Officer', value: '+260 973 548847' },
-    { label: 'Email Officer', value: 'mellowmusic@mellow.com' },
+    { label: 'Email Officer', value: 'ikuvibes@gmail.com' },
   ],
 };
 
 export const SOCIALS = {
   title: 'Social',
   links: [
-    '/facebook.svg',
-    '/instagram.svg',
-    '/twitter.svg',
-    '/youtube.svg',
+    { link: 'https://web.facebook.com', icon: '/facebook.svg' },
+    { link: '/', icon: '/instagram.svg' },
+    { link: '/', icon: '/twitter.svg' },
+    { link: '/', icon: '/youtube.svg' },
   ],
 };
