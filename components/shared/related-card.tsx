@@ -6,8 +6,8 @@ import { Expand, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import { cn, convertTimeAgo, formatViews } from "@/lib/utils";
-import { IEvent } from "@/lib/database/models/event.model";
 import IconButton from "../ui/icon-button";
+import { IEvent } from "@/types";
 
 interface RelatedCard {
     event: IEvent,

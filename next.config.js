@@ -11,7 +11,7 @@ const nextConfig = {
       }
     ]
   },
-  staticPageGenerationTimeout: 300000, // 5 minutes in milliseconds
+  staticPageGenerationTimeout: 600000, // 5 minutes in milliseconds
 }
 
 module.exports = nextConfig;

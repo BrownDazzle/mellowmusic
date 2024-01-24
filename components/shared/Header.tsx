@@ -2,10 +2,6 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Button } from "../ui/button"
-import NavItems from "./NavItems"
-import MobileNav from "./MobileNav"
-import Search from "./Search"
 
 const Header = () => {
   return (

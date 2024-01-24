@@ -1,6 +1,6 @@
 "use client"
 
-import { IEvent } from '@/lib/database/models/event.model';
+import { IEvent } from '@/types';
 import { PauseCircleIcon, PlayCircleIcon, StopCircle } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import WaveSurfer from 'wavesurfer.js';

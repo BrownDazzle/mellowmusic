@@ -1,9 +1,9 @@
 "use client"
 
-import { IEvent } from '@/lib/database/models/event.model';
 import { PauseCircleIcon, PlayCircleIcon, StopCircle } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import IconButton from '../ui/icon-button';
+import { IEvent } from '@/types';
 
 type CardProps = {
     event: IEvent,
