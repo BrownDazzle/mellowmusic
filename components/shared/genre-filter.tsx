@@ -1,5 +1,6 @@
 "use client"
 
+import getGenre from "@/actions/get_genres";
 import {
     Select,
     SelectContent,
@@ -7,9 +8,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { getAllGenres } from "@/lib/actions/genre.action";
-import { IGenre } from "@/lib/database/models/genre.model";
+
 import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
+import { IGenre } from "@/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -20,7 +21,7 @@ const GenreFilter = () => {
 
     useEffect(() => {
         const getGenres = async () => {
-            const categoryList = await getAllGenres();
+            const categoryList = await getGenre();
 
             categoryList && setGenres(categoryList as IGenre[])
         }

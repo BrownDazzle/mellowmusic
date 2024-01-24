@@ -11,9 +11,7 @@ const nextConfig = {
       }
     ]
   },
-  experimental: {
-    serverActions: true,
-  },
+  staticPageGenerationTimeout: 300000, // 5 minutes in milliseconds
 }
 
-module.exports = nextConfig
+module.exports = nextConfig;

@@ -148,3 +148,36 @@ export type SearchParamProps = {
   params: { id: string }
   searchParams: { [key: string]: string | string[] | undefined }
 }
+
+export interface ICategory extends Document {
+  _id: string;
+  type: string;
+  name: string;
+}
+
+export interface IEvent extends Document {
+  _id: string;
+  title: string;
+  description?: string;
+  genre: { _id: string, name: string, type: string };
+  createdAt: Date;
+  imageUrl: string;
+  audioUrl?: string,
+  videoUrl?: string,
+  views: number;
+  likes: number;
+  isFree: boolean;
+  socialUrl?: {
+    facebook?: string;
+    youtube?: string;
+    instagram?: string;
+  };
+  category: { _id: string, name: string, type: string }
+}
+
+export interface IGenre extends Document {
+  _id: string;
+  type: string;
+  name: string;
+}
+

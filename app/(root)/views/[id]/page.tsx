@@ -4,10 +4,12 @@ import AudioPlayer from '@/components/shared/AudioPlayer';
 import Collection from '@/components/shared/Collection';
 import VideoPlayer from '@/components/shared/VideoPlayer';
 import DownloadButton from '@/components/ui/download-button';
-import { getAllEvents, getEventById, getEvents, getRelatedEventsByCategory, increaseEventViews } from '@/lib/actions/event.actions';
 import { cn, convertTimeAgo, formatViews } from '@/lib/utils';
 import { SearchParamProps } from '@/types'
 import Image from 'next/image';
+import getProduct from '@/actions/get_event';
+import getRelatedEvents from '@/actions/get_related_events';
+import getEvents from '@/actions/get_events';
 
 export async function generateStaticParams() {
     try {
@@ -26,13 +28,13 @@ export async function generateStaticParams() {
 
 
 const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
-    await increaseEventViews(params.id);
-    const event = await getEventById(params.id);
+    const page = Number(searchParams?.page) || 1;
+    const event = await getProduct(params.id);
 
-    const relatedEvents = await getRelatedEventsByCategory({
-        categoryId: event.category._id,
-        eventId: event._id,
-        page: searchParams.page as string,
+    const relatedEvents = await getRelatedEvents({
+        categoryId: event?.category._id,
+        eventId: event?._id,
+        page: page,
     })
 
     return (

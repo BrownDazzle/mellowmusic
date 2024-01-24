@@ -1,5 +1,6 @@
 "use client"
 
+import getCategory from "@/actions/get_categories";
 import {
   Select,
   SelectContent,
@@ -7,9 +8,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { getAllCategories } from "@/lib/actions/category.actions";
-import { ICategory } from "@/lib/database/models/category.model";
+
+
 import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
+import { ICategory } from "@/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -24,7 +26,7 @@ const CategoryFilter = ({ category }: DropdownProps) => {
 
   useEffect(() => {
     const getCategories = async () => {
-      const categoryList = await getAllCategories();
+      const categoryList = await getCategory();
 
       categoryList && setCategories(categoryList as ICategory[])
     }

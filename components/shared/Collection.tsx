@@ -1,7 +1,8 @@
-import { IEvent } from '@/lib/database/models/event.model'
+
 import React from 'react'
 import Pagination from './Pagination'
 import RelatedCard from './related-card'
+import { IEvent } from '@/types'
 
 type CollectionProps = {
   data: IEvent[],
@@ -25,7 +26,7 @@ const Collection = ({
 }: CollectionProps) => {
   return (
     <>
-      {data.length > 0 ? (
+      {data?.length > 0 ? (
         <div className="flex flex-col items-center gap-10">
           <ul className="grid w-full grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-2 xl:gap-10">
             {data.map((event) => {

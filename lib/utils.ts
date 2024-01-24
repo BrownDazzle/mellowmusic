@@ -109,7 +109,14 @@ export function removeKeysFromQuery({ params, keysToRemove }: RemoveUrlQueryPara
   )
 }
 
+
 export const handleError = (error: unknown) => {
-  console.error(error)
-  throw new Error(typeof error === 'string' ? error : JSON.stringify(error))
-}
+  console.error("HANDLE_ERR", error);
+
+  if (error instanceof Error && error?.cause === 'ETIMEOUT' && error?.name === 'queryTxt') {
+    // Handle the timeout error in a way that makes sense for your application.
+    // For example, you might want to retry the operation or show a user-friendly message.
+  }
+
+  //throw new Error(typeof error === 'string' ? error : JSON.stringify(error));
+};
