@@ -19,7 +19,7 @@ const RelatedCard: React.FC<RelatedCard> = ({
     const router = useRouter();
 
     const handleClick = () => {
-        router.push(`/views/${event?._id}`);
+        router.push(`/view/${event?._id}`);
     };
 
 
