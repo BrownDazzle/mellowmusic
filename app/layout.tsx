@@ -13,9 +13,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'IkuVibes Music',
   description: 'IkuVibes is a platform for free music and video streaming and downloads.',
-  /*icons: {
-    icon: '/assets/images/logo.svg'
-  }*/
+  icons: {
+    icon: '/apple.svg'
+  }
 }
 
 export default function RootLayout({

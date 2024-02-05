@@ -1,6 +1,7 @@
 "use client"
 import { handleError } from '@/lib/utils';
 import React, { useState } from 'react';
+import { Loader } from './loader';
 
 interface DownloadUrl {
     url: string
@@ -49,11 +50,11 @@ const DownloadButton = ({ url, title }: DownloadUrl) => {
 
     return (
         <button
-            className="bg-slate-900 hover:bg-slate-700 hover:cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-full my-5"
+            className="bg-slate-900 item-center hover:bg-slate-700 hover:cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-full my-5"
             onClick={handleDownload}
         >
             {loading ? (
-                'Processing...'
+                <Loader size={25} />
             ) : ` Download`}
         </button>
     );
