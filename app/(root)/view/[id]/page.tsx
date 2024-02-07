@@ -13,9 +13,7 @@ import getEvents from '@/actions/get_events';
 import { Metadata } from 'next';
 import getViewsCount from '@/actions/views_count';
 
-export const dynamic = 'force-static';
-
-export async function generateStaticParams() {
+{/*export async function generateStaticParams() {
     try {
         const res = await getEvents();
 
@@ -28,7 +26,7 @@ export async function generateStaticParams() {
         console.error("Error in generateStaticParams", error);
         throw error; // Rethrow the error to capture it in the build process.
     }
-}
+}*/}
 
 export async function generateMetadata(
     { params }: SearchParamProps,
