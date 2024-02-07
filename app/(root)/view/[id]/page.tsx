@@ -13,21 +13,6 @@ import getEvents from '@/actions/get_events';
 import { Metadata } from 'next';
 import getViewsCount from '@/actions/views_count';
 
-{/*export async function generateStaticParams() {
-    try {
-        const res = await getEvents();
-
-        return res
-            .filter((post: any) => post?._id)
-            .map((post: any) => ({
-                params: { id: post._id.toString() },
-            }));
-    } catch (error) {
-        console.error("Error in generateStaticParams", error);
-        throw error; // Rethrow the error to capture it in the build process.
-    }
-}*/}
-
 export async function generateMetadata(
     { params }: SearchParamProps,
 ): Promise<Metadata> {

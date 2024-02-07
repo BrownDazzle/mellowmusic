@@ -6,28 +6,6 @@ import MusicHero from '@/components/shared/Hero';
 import Search from '@/components/shared/Search';
 import { SearchParamProps } from '@/types';
 
-export const dynamic = 'force-static'
-
-export async function generateStaticParams() {
-  try {
-
-    const data = await getEvents();
-
-    // Check if the response is an array before using map
-    if (Array.isArray(data)) {
-      return data?.map((post: any) => ({
-        params: { id: post._id.toString() },
-      }));
-    } else {
-      console.error("Error in generateStaticParams: getProducts response is not an array");
-      throw new Error("Invalid response from getProducts");
-    }
-  } catch (error) {
-    console.error("Error in generateStaticParams", error);
-    throw error; // Rethrow the error to capture it in the build process.
-  }
-}
-
 export const revalidate = 10
 
 export default async function Home({ searchParams }: SearchParamProps) {
