@@ -7,5 +7,5 @@ interface LoaderProps {
 }
 
 export const Loader = ({ size }: LoaderProps) => {
-  return <ClipLoader color="#22c55e" size={size} />
+  return <ClipLoader color="#701a75" size={size} />
 };

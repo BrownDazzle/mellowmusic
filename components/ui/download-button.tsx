@@ -50,7 +50,7 @@ const DownloadButton = ({ url, title }: DownloadUrl) => {
 
     return (
         <button
-            className="bg-slate-900 item-center hover:bg-slate-700 hover:cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-full my-5"
+            className="bg-fuchsia-950 item-center hover:bg-slate-700 hover:cursor-pointer text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline rounded-full mt-5"
             onClick={handleDownload}
         >
             {loading ? (

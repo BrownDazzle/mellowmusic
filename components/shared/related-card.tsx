@@ -38,7 +38,7 @@ const RelatedCard: React.FC<RelatedCard> = ({
             <div className="flex flex-col gap-4 px-2 justify-between items-center w-full">
                 <div className="w-full">
                     <div>
-                        <p className={cn(`font-semibold text-sm md:text-md text-black`)}>{event.title}</p>
+                        <p className={cn(`font-semibold text-sm md:text-md text-slate-900`)}>{event.title}</p>
                         <p className="text-sm text-gray-500">{event.category.name}</p>
                     </div>
                     {/* Price & Reiew */}

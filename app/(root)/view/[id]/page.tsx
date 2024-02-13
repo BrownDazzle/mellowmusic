@@ -69,7 +69,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
                                         {event?.genre.name}
                                     </p>
                                 </div>
-                                <h2 className={cn(`font-semibold text-2xl text-black`)}>{event?.title}</h2>
+                                <h2 className={cn(`font-semibold text-2xl text-slate-900`)}>{event?.title}</h2>
                                 <div className="w-full flex flex-row gap-4 mt-5">
                                     <p className="p-medium-12 p-medium-15 text-grey-500">
                                         {convertTimeAgo(event?.createdAt)}
@@ -97,7 +97,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
             </section>
 
             {/* EVENTS with the same category */}
-            <section className="wrapper my-8 flex flex-col gap-8 md:gap-12">
+            <section className="wrapper flex flex-col gap-8 md:gap-12">
                 {/*<h2 className="h2-bold">Related {event?.category.name === "Video" ? `${event?.category.name}s` : event?.category.name}</h2>*/}
 
                 <Collection
