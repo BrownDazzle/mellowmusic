@@ -48,8 +48,8 @@ const RelatedCard: React.FC<RelatedCard> = ({
                     </div>
                 </div>
                 <div className="flex flex-row gap-y-5 justify-between ml-2 w-full">
-                    {event.views >= 1 ? (<p className="text-sm text-gray-700">{formatViews(event.views)} views</p>) : null}
-                    <p className="text-sm text-gray-700">{convertTimeAgo(event.createdAt)}</p>
+                    {event.views >= 1 ? (<p className="text-xs text-gray-700">{formatViews(event.views)} views</p>) : null}
+                    <p className="text-xs text-gray-700">{convertTimeAgo(event.createdAt)}</p>
                 </div>
             </div>
         </div>
