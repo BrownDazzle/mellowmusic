@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'IkuVibes Music',
   description: 'IkuVibes is a platform for free music and video streaming and downloads.',
   icons: {
-    icon: '/apple.svg'
+    icon: "/iku_logo.png"
   }
 }
 

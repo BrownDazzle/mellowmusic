@@ -158,6 +158,7 @@ export interface ICategory extends Document {
 export interface IEvent extends Document {
   _id: string;
   title: string;
+  artist: string;
   description?: string;
   genre: { _id: string, name: string, type: string };
   createdAt: Date;

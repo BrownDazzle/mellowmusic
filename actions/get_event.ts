@@ -12,7 +12,6 @@ const getProduct = async (id: string) => {
         }
 
         const data = await res.json();
-        console.log("GOOO__", data)
 
         return data
     } catch (error) {

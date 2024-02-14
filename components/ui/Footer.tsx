@@ -18,7 +18,7 @@ const Footer = () => {
           <div className='flex flex-wrap gap-5 sm:justify-between md:flex-1'>
             {FOOTER_LINKS.map((columns) => (
               <FooterColumn title={columns.title} key={columns.title}>
-                <ul className="regular-14 flex flex-col gap-4 text-fuchsia-950 text-sm text-bold">
+                <ul className="regular-14 flex flex-col gap-4 text-slate-700 text-sm text-bold">
                   {columns.links.map((link) => (
                     <Link href={link.href} key={link.value}>
                       {link.value}
@@ -39,7 +39,7 @@ const Footer = () => {
                     {/*<p className="whitespace-nowrap">
                       {link.label}:
                 </p>*/}
-                    <p className="medium-14 whitespace-nowrap text-fuchsia-950 text-sm text-bold">
+                    <p className="medium-14 whitespace-nowrap text-slate-700 text-sm text-bold">
                       {link.value}
                     </p>
                   </Link>
@@ -49,7 +49,7 @@ const Footer = () => {
 
             <div className="flex flex-col gap-5">
 
-              <ul className="regular-14 flex gap-4 text-fuchsia-950">
+              <ul className="regular-14 flex gap-4 text-slate-700">
                 {SOCIALS.links.map((link, i) => (
                   <Link href="/" key={i}>
                     <Image src={link.icon} alt="logo" width={24} height={24} />
@@ -63,7 +63,7 @@ const Footer = () => {
 
         <div className="border bg-gray-20" />
         <Link href="https://actscloudinc.com" target='_blank'>
-          <p className="regular-14 w-full text-center text-fuchsia-950"><strong className='text-semibold text-1xl'> ActsCloud Inc. </strong>| &copy;2024 All rights reserved</p>
+          <p className="regular-14 w-full text-center text-slate-700"><strong className='text-semibold text-1xl'> ActsCloud Inc. </strong>| &copy;2024 All rights reserved</p>
         </Link>
       </div>
     </footer>

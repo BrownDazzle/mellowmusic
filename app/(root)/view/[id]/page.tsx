@@ -69,8 +69,9 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
                                         {event?.genre.name}
                                     </p>
                                 </div>
-                                <h2 className={cn(`font-semibold text-2xl text-slate-900`)}>{event?.title}</h2>
-                                <div className="w-full flex flex-row gap-4 mt-5">
+                                <h2 className={cn(`font-semibold text-2xl text-slate-900`)}>{event?.artist}</h2>
+                                <p className={cn(`font-semibold text-1xl text-slate-800`)}>{event?.title}</p>
+                                <div className="w-full flex flex-row gap-4">
                                     <p className="p-medium-12 p-medium-15 text-grey-500">
                                         {convertTimeAgo(event?.createdAt)}
                                     </p>
