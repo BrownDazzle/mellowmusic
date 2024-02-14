@@ -205,7 +205,7 @@ body {
 
   /* SHADCN OVERRIDES */
   .select-field {
-    @apply w-auto bg-purple-500 h-[34px] placeholder:text-white rounded-lg p-regular-16 px-2 py-3 focus-visible:ring-transparent focus:ring-transparent !important;
+    @apply w-auto bg-purple-900 h-[34px] placeholder:text-white rounded-lg p-regular-16 px-2 py-3 focus-visible:ring-transparent focus:ring-transparent !important;
   }
 
   .input-field {

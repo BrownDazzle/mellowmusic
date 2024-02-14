@@ -3,7 +3,7 @@ import React from 'react';
 
 const MusicHero: React.FC = () => {
     return (
-        <div className="relative md:h-[50vh] h-[40vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: 'url("/assets/images/hero.png")' }}>
+        <div className="relative md:h-[50vh] h-[40vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: 'url("/vibes_bg.png")' }}>
             <div className="absolute inset-0 bg-black opacity-50"></div>
             <div className="text-center z-10">
                 <h1 className="text-2xl md:text-4xl font-extrabold text-white mb-4">Discover the Magic of Music</h1>
