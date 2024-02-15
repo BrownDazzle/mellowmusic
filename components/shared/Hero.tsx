@@ -6,8 +6,8 @@ const MusicHero: React.FC = () => {
         <div className="relative md:h-[50vh] h-[40vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: 'url("/vibes_bg.png")' }}>
             <div className="absolute inset-0 bg-black opacity-50"></div>
             <div className="text-center z-10">
-                <h1 className="text-2xl md:text-4xl font-extrabold text-white mb-4">Discover the Magic of Music</h1>
-                <p className="text-md md:text-lg text-gray-300 mb-8">Explore a world of melodies and rhythms</p>
+                <h1 className="text-2xl md:text-4xl font-extrabold text-white mb-4">Explore the Magic of Music</h1>
+                <p className="text-md md:text-lg text-gray-300 mb-8">Download and stream free music videos and songs.</p>
             </div>
         </div>
     );
