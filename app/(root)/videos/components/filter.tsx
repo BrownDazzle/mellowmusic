@@ -8,7 +8,6 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { chartLinks } from "@/constants";
 
 
 import { formUrlQuery, removeKeysFromQuery } from "@/lib/utils";
