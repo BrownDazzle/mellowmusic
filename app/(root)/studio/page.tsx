@@ -21,22 +21,7 @@ const fetchStudioById = async (id: string) => {
     };
 };
 
-interface StudioPageProps {
-    studio: {
-        id: string;
-        name: string;
-        description: string;
-        sessionCharges: number;
-        socialMedia: {
-            instagram: string;
-            twitter: string;
-            facebook: string;
-        };
-        // Add other details as needed
-    };
-}
-
-const StudioPage: React.FC<StudioPageProps> = () => {
+const StudioPage: React.FC = () => {
     const studio = {
         id: 1,
         name: 'IkuVibes Studios',
