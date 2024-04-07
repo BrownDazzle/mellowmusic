@@ -1,16 +1,12 @@
 export const headerLinks = [
   {
-    label: 'Home',
-    route: '/',
+    label: 'Our Artists',
+    route: '/artists',
   },
   {
-    label: 'Create Event',
-    route: '/events/create',
-  },
-  {
-    label: 'My Profile',
-    route: '/profile',
-  },
+    label: 'Studio',
+    route: '/studio',
+  }
 ]
 
 export const eventDefaultValues = {

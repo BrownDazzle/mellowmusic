@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { GoDotFill } from "react-icons/go";
 import AudioPlayer from '@/components/shared/AudioPlayer';
 import Collection from '@/components/shared/Collection';
@@ -34,6 +34,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
     const page = Number(searchParams?.page) || 1;
     //const count = await getViewsCount(params.id);
     //console.log("COUNT_PAGE", count)
+    await getViewsCount(params.id);
     const event = await getProduct(params.id);
 
     const relatedEvents = await getRelatedEvents({
@@ -44,21 +45,23 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
 
     return (
         <>
-            <section className="wrapper flex justify-centers bg-dotted-pattern bg-contain">
-                <div className="grid grid-cols-1 md:grid-cols-2 2xl:max-w-7xl py-5">
-                    {event?.category.name === "Music" && (
-                        <Image
-                            src={event?.imageUrl}
-                            alt="hero image"
-                            width={800}
-                            height={800}
-                            className="h-full min-h-[400px] max-h-[400px] object-cover object-center rounded-lg"
-                        />
-                    )}
-                    {event?.category.name === "Video" && (
-                        <VideoPlayer event={event} />
-                    )}
-                    <div className="flex w-full flex-col p-5 ">
+            <section className="wrapper flex justify-center bg-dotted-pattern bg-contain w-full">
+                <div className="flex flex-col md:flex-row w-full 2xl:max-w-7xl py-5 mt-10">
+                    <div className='basis-full md:basis-2/3 lg:basis-2/3 md:pr-5 lg:pr-10'>
+                        {event?.category.name === "Music" && (
+                            <Image
+                                src={event?.imageUrl}
+                                alt="hero image"
+                                width={800}
+                                height={800}
+                                className="h-full min-h-[400px] max-h-[400px] object-cover object-center rounded-lg"
+                            />
+                        )}
+                        {event?.category.name === "Video" && (
+                            <VideoPlayer event={event} />
+                        )}
+                    </div>
+                    <div className="basis-full md:basis-1/3 lg:basis-1/3 flex w-full flex-col p-5 ">
                         <div className="flex flex-col gap-6">
                             <div className="flex flex-col gap-3 ">
                                 <div className=" flex gap-3 items-center">
@@ -103,6 +106,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
 
                 <Collection
                     data={relatedEvents?.data}
+                    category={""}
                     emptyTitle="No Events Found"
                     emptyStateSubtext="Come back later"
                     collectionType="All_Events"

@@ -3,11 +3,13 @@ import React from 'react'
 import Pagination from './Pagination'
 import RelatedCard from './related-card'
 import { IEvent } from '@/types'
+import MoreButton from '../ui/more-button'
 
 type CollectionProps = {
   data: IEvent[],
   emptyTitle: string,
   emptyStateSubtext: string,
+  category: string,
   limit: number,
   page: number | string,
   totalPages?: number,
@@ -19,6 +21,7 @@ const Collection = ({
   data,
   emptyTitle,
   emptyStateSubtext,
+  category,
   page,
   totalPages = 0,
   collectionType,
@@ -40,7 +43,9 @@ const Collection = ({
               )
             })}
           </ul>
-
+          <div className='flex justify-end pr-5 w-full'>
+            {category ? (<MoreButton category={category} />) : null}
+          </div>
           {totalPages > 1 && (
             <Pagination urlParamName={urlParamName} page={page} totalPages={totalPages} />
           )}

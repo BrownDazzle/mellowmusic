@@ -3,6 +3,10 @@ import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 
 import './globals.css'
+import ClientOnly from '@/components/shared/ClientOnly'
+import Navbar from '@/components/shared/navbar/Navbar'
+import Footer from '@/components/ui/Footer'
+import SearchModal from '@/components/modals/search-modal'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -29,7 +33,14 @@ export default function RootLayout({
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7793275307187854"
           crossOrigin="anonymous"></script>
       </head>
-      <body className={poppins.variable}>{children}</body>
+      <body className={poppins.variable}>
+        <ClientOnly>
+          <Navbar />
+          <SearchModal />
+        </ClientOnly>
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }

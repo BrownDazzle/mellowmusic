@@ -1,3 +1,30 @@
+
+export type SafeUser = Omit<
+  User,
+  "createdAt" | "updatedAt" | "emailVerified"
+> & {
+  picture?: {
+    data: {
+      url: string
+    }
+  };
+  accessToken?: string;
+  createdAt: string;
+  updatedAt: string;
+  emailVerified: string | null;
+};
+
+
+export interface User {
+  id: string;
+  name?: string;
+  image?: string;
+  picture?: string;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  accessToken?: string;
+}
 // ====== USER PARAMS
 export type CreateUserParams = {
   clerkId: string
@@ -46,6 +73,13 @@ export type UpdateEventParams = {
   }
   path: string
 }
+
+export interface Category {
+  id: string;
+  name: string;
+  url: string;
+};
+
 
 export type DeleteEventParams = {
   eventId: string
