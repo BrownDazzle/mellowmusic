@@ -4,9 +4,6 @@ import { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import { signOut, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
-import useLoginModal from "@/hooks/useLoginModal";
-import useRegisterModal from "@/hooks/useRegisterModal";
 import { IEvent, SafeUser, User } from "@/types";
 
 import MenuItem from "./MenuItem";
@@ -24,17 +21,9 @@ interface MenuProps {
 }
 
 const UserMenu = ({ data }: MenuProps) => {
-  const router = useRouter();
-  const loginModal = useLoginModal();
   const searchModal = useSearchModal();
-  const [showModal, setShowModal] = useState(searchModal.isOpen);
-  const [showResults, setShowResults] = useState<IEvent[]>(data || []);
 
   const [isOpen, setIsOpen] = useState(false);
-
-  const toggleOpen = useCallback(() => {
-    setIsOpen((value) => !value);
-  }, []);
 
   return (
     <div className=" bg-white rounded-full h-auto">
