@@ -53,15 +53,15 @@ const Filter = () => {
     }
 
     return (
-        <div className='flex flex-row gap-3 items-center pb-5 pr-2'>
-            <h3 className={cn(`font-bold text-2xl text-black`)}>Latest</h3>
-            <div className={cn(`w-full max-w-200 h-auto rounded-full flex items-center cursor-pointer ${!selectedCategory && "border-b-[3px] border-r-[1px] border-slate-950"}`)}>
+        <div className='flex flex-row gap-3 items-center pb-5 '>
+            <h3 className={cn(`font-bold text-1xl md:text-2xl text-black`)}>Latest</h3>
+            <div className={cn(`w-full max-w-200 h-auto rounded-full flex items-center cursor-pointer mr-4 ${!selectedCategory && "border-b-[3px] border-r-[1px] border-slate-950"}`)}>
                 <p onClick={() => onSelectCategory("Music")} className={`${selectedCategory && 'text-primary-500'
-                    } flex-center whitespace-nowrap font-semibold bg-white text-lg rounded-md px-3 py-1 ${selectedCategory === "Music" ? 'border-b-[3px] border-r-[1px] border-slate-950 text-slate-700' : 'bg-transparent text-slate-900'}  pr-2`}>Songs</p>
+                    } flex-center whitespace-nowrap font-semibold bg-white text-sm md:text-lg rounded-md px-3 py-1 ${selectedCategory === "Music" ? 'border-b-[3px] border-r-[1px] border-slate-950 text-slate-700' : 'bg-transparent text-slate-900'}  pr-2`}>Songs</p>
                 <p onClick={() => onSelectCategory("Video")} className={`${selectedCategory && 'text-primary-500'
-                    } flex-center whitespace-nowrap font-semibold bg-white text-lg rounded-md px-3 py-1 ${selectedCategory === "Video" ? 'border-b-[3px] border-r-[1px] border-slate-950 text-slate-700' : 'bg-transparent text-slate-900'}  pr-2`}>Videos</p>
+                    } flex-center whitespace-nowrap font-semibold bg-white text-sm md:text-lg rounded-md px-3 py-1 ${selectedCategory === "Video" ? 'border-b-[3px] border-r-[1px] border-slate-950 text-slate-700' : 'bg-transparent text-slate-900'}  pr-2`}>Videos</p>
                 <p onClick={() => onSelectCategory("Album")} className={`${selectedCategory && 'text-primary-500'
-                    } flex-center whitespace-nowrap font-semibold bg-white text-lg rounded-md px-3 py-1 ${selectedCategory === "Album" ? 'border-b-[3px] border-r-[1px] border-slate-950 text-slate-700' : 'bg-transparent text-slate-900'}  pr-2`}>Albums</p>
+                    } flex-center whitespace-nowrap font-semibold bg-white text-sm md:text-lg rounded-md px-3 py-1 ${selectedCategory === "Album" ? 'border-b-[3px] border-r-[1px] border-slate-950 text-slate-700' : 'bg-transparent text-slate-900'}  pr-2`}>Albums</p>
             </div>
         </div>
     )

@@ -18,6 +18,8 @@ export default async function Home({ searchParams }: SearchParamProps) {
   const category = (searchParams?.category as string) || '';
   const genre = (searchParams?.genre as string) || '';
 
+  const trendData = await getEvents();
+
   const events = await getProducts({
     query: searchText,
     category,
@@ -32,7 +34,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
         <MusicHero />
       </section>
       <div className='relative pt-10 px-5'>
-        <HorizontalSlider sliders={events?.data} title='Trending' />
+        <HorizontalSlider sliders={trendData} title='Trending' />
       </div>
       <section id="events" className="wrapper my-8 flex flex-col gap-8 md:gap-12">
         <div className="flex w-full gap-4 md:flex-row">

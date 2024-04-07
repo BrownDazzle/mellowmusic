@@ -47,17 +47,17 @@ const HorizontalSlider: React.FC<SliderProps> = ({ categories, sliders, title, p
     };
 
     return (
-        <div className='relative w-full container'>
+        <div className='relative w-full '>
             <div className='container flex flex-row justify-between items-center pb-5'>
                 <h3 className={cn(`font-bold text-2xl text-black`)}>{title}</h3>
             </div>
             <div
                 ref={scrollContainer}
-                className="flex items-center overflow-x-scroll pb-5 hide-scroll-bar w-full"
+                className="flex items-center overflow-x-scroll pb-5 hide-scroll-bar w-full container"
             >
                 <div
 
-                    className="flex flex-nowrap gap-6 lg:mx-10 md:mx-10 mx-10 "
+                    className="flex flex-nowrap gap-6 lg:px-10 md:px-10 mx-0 "
                 >
                     {sliders?.map((item, i) => (
                         <CategoryCard
