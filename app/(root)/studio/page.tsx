@@ -1,10 +1,8 @@
 // pages/studio/[id].tsx
 
-import { GetStaticPaths, GetStaticProps } from 'next';
 
 
-// Import your styles here
-
+// Import your styles he\\\\\\
 // Assuming you have a function to fetch studio data based on ID
 const fetchStudioById = async (id: string) => {
     // Implement your data fetching logic here
@@ -73,31 +71,6 @@ const StudioPage: React.FC<StudioPageProps> = () => {
             </div>
         </div>
     );
-};
-
-// This function gets called at build time
-export const getStaticPaths: GetStaticPaths = async () => {
-    // Assuming you have a function to get all studio IDs
-    const studioIds = ['studio1', 'studio2']; // Replace with your actual data
-    const paths = studioIds.map((id) => ({ params: { id } }));
-
-    return {
-        paths,
-        fallback: true, // Show a loading state while data is being fetched at runtime
-    };
-};
-
-// This function gets called at build time
-export const getStaticProps: GetStaticProps<StudioPageProps> = async ({ params }) => {
-    const { id } = params as { id: string };
-    const studio = await fetchStudioById(id);
-
-    return {
-        props: {
-            studio,
-        },
-        revalidate: 60 * 60, // Re-generate this page every 1 hour
-    };
 };
 
 export default StudioPage;
