@@ -25,7 +25,7 @@ const RelatedCard: React.FC<RelatedCard> = ({
 
 
     return (
-        <div onClick={handleClick} className="flex gap-2 bg-white cursor-pointer rounded-xl shadow-md p-3 space-y-4 w-full max-h-[140px]">
+        <div onClick={handleClick} className="flex gap-2 bg-white cursor-pointer rounded-xl shadow-md p-3 space-b-4 w-full max-h-[110px]">
             {/* Image & actions */}
 
             <Image
@@ -36,7 +36,7 @@ const RelatedCard: React.FC<RelatedCard> = ({
                 className=" object-cover align-center rounded-xl relative items-center justify-center hover:scale-110 transition"
             />
             {/* Description */}
-            <div className="flex flex-col gap-3 px-2 justify-between items-center w-full">
+            <div className="flex flex-col px-2 gap-2 justify-between items-center w-full py-2">
                 <div className="w-full">
                     <div>
                         <p className={cn(`font-semibold text-sm md:text-md text-slate-900`)}>{event.title}</p>
@@ -44,7 +44,7 @@ const RelatedCard: React.FC<RelatedCard> = ({
                     </div>
                     {/* Price & Reiew */}
                     <div className="flex items-center justify-between">
-                        {event.category.name === "Video" ? (<FcFilmReel />) : (<TbMusicStar />)}
+                        {event?.videoUrl ? (<FcFilmReel />) : (<TbMusicStar />)}
                     </div>
                 </div>
                 <div className="flex flex-row gap-y-5 justify-between ml-2 w-full">

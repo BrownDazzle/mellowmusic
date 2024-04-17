@@ -7,6 +7,7 @@ import ClientOnly from '@/components/shared/ClientOnly'
 import Navbar from '@/components/shared/navbar/Navbar'
 import Footer from '@/components/ui/Footer'
 import SearchModal from '@/components/modals/search-modal'
+import ReduxProvider from '@/providers/redux-provider'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -34,12 +35,9 @@ export default function RootLayout({
           crossOrigin="anonymous"></script>
       </head>
       <body className={poppins.variable}>
-        <ClientOnly>
-          <Navbar />
-          <SearchModal />
-        </ClientOnly>
-        {children}
-        <Footer />
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
       </body>
     </html>
   )

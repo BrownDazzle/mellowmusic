@@ -65,7 +65,7 @@ const SearchModal = () => {
                 {/*content*/}
                 <div className={`
             translate
-            duration-300
+            duration-500
             h-full
             ${showModal ? 'translate-y-0' : 'translate-y-full'}
             ${showModal ? 'opacity-100 ' : 'opacity-0'}

@@ -22,7 +22,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
 
   const events = await getProducts({
     query: searchText,
-    category,
+    type: category,
     genre,
     page,
     limit: 6
@@ -36,16 +36,11 @@ export default async function Home({ searchParams }: SearchParamProps) {
       <div className='relative pt-10 px-5'>
         <HorizontalSlider sliders={trendData} title='Trending' />
       </div>
-      <section id="events" className="wrapper my-8 flex flex-col gap-8 md:gap-12">
-        <div className="flex w-full gap-4 md:flex-row">
-          <Filter />
-        </div>
-
+      <section id="events" className="wrapper my-8 flex flex-col sm:px-5 md:px-20 lg:px-5">
         <Collection
           data={events?.data}
           emptyTitle="No Events Found"
           emptyStateSubtext="Come back later"
-          collectionType="All_Events"
           category={category}
           limit={6}
           page={page}

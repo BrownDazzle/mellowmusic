@@ -21,10 +21,8 @@ const CategoryDetails = async ({ params, searchParams }: SearchParamProps) => {
     //const count = await getViewsCount(params.id);
     //console.log("COUNT_PAGE", count)
     await getViewsCount(params.id);
-    const category = 'Music';
 
     const events = await getProducts({
-        category,
         page,
         limit: 6
     })
@@ -36,7 +34,7 @@ const CategoryDetails = async ({ params, searchParams }: SearchParamProps) => {
                     <div className='basis-1/4 pt-20'>
                         Ad Space
                     </div>
-                    <div className='md:basis-3/4 border-x-[0.5px] px-2'>
+                    <div className='md:basis-3/4 md:border-l-[0.5px] px-2'>
                         <>
                             <Collection
                                 data={events?.data}

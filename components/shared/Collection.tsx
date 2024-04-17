@@ -1,9 +1,11 @@
-
-import React from 'react'
+"use client"
+import React, { useState } from 'react'
 import Pagination from './Pagination'
 import RelatedCard from './related-card'
 import { IEvent } from '@/types'
 import MoreButton from '../ui/more-button'
+import Filter from './filter'
+import { useSelector } from 'react-redux'
 
 type CollectionProps = {
   data: IEvent[],
@@ -14,31 +16,31 @@ type CollectionProps = {
   page: number | string,
   totalPages?: number,
   urlParamName?: string,
-  collectionType?: 'Events_Organized' | 'My_Tickets' | 'All_Events'
 }
 
 const Collection = ({
   data,
-  emptyTitle,
-  emptyStateSubtext,
-  category,
   page,
   totalPages = 0,
-  collectionType,
-  urlParamName,
 }: CollectionProps) => {
+  const [updateData, setUpdateData] = useState<IEvent[]>(data)
+  const [category, setCategory] = useState<string | null>("");
+  const { genreListId } = useSelector((state: any) => state.player);
+  const { activeSong, isPlaying } = useSelector((state: any) => state.player);
+
   return (
     <>
-      {data?.length > 0 ? (
+      <div className='w-full'>
+        <Filter setUpdateData={setUpdateData} setCategory={setCategory} data={data} />
+      </div>
+      {updateData?.length > 0 ? (
         <div className="flex flex-col items-center gap-10">
-          <ul className="grid w-full grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:gap-10">
-            {data.map((event) => {
-              const hasOrderLink = collectionType === 'Events_Organized';
-              const hidePrice = collectionType === 'My_Tickets';
+          <ul className="grid w-full grid-cols-1 gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 ">
+            {updateData?.map((event) => {
 
               return (
                 <li key={event._id} className="flex justify-center">
-                  <RelatedCard event={event} hasOrderLink={hasOrderLink} hidePrice={hidePrice} />
+                  <RelatedCard event={event} />
                 </li>
               )
             })}
@@ -47,7 +49,7 @@ const Collection = ({
             {category ? (<MoreButton category={category} />) : null}
           </div>
           {totalPages > 1 && (
-            <Pagination urlParamName={urlParamName} page={page} totalPages={totalPages} />
+            <Pagination page={page} totalPages={totalPages} />
           )}
         </div>
       ) : null}

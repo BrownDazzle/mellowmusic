@@ -50,7 +50,7 @@ export type CreateEventParams = {
     description: string
     genre: string
     imageUrl: string
-    categoryId: string
+    category: string
     isFree: boolean
     url: string
   }
@@ -65,9 +65,9 @@ export type UpdateEventParams = {
     imageUrl: string
     description: string
     genre: string
-    categoryId: string
+    category: string
     views?: string
-    likes?: string
+    type?: string
     isFree: boolean
     url: string
   }
@@ -101,7 +101,7 @@ export type GetEventsByUserParams = {
 }
 
 export type GetRelatedEventsByCategoryParams = {
-  categoryId: string
+  category: string
   eventId: string
   limit?: number
   page: number | string
@@ -115,14 +115,14 @@ export type Event = {
   createdAt: Date;
   imageUrl: string;
   views: string;
-  likes: string;
+  type: string
   isFree: boolean;
   socialUrl?: {
     facebook?: string;
     youtube?: string;
     instagram?: string;
   };
-  category: { _id: string, name: string, type: string }
+  category: string
 }
 
 // ====== CATEGORY PARAMS
@@ -200,7 +200,7 @@ export interface IEvent extends Document {
   audioUrl?: string,
   videoUrl?: string,
   views: number;
-  likes: number;
+  type: string
   isFree: boolean;
   socialUrl?: {
     facebook?: string;

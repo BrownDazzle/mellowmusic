@@ -5,7 +5,7 @@ const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
 interface Query {
     query?: string;
-    category?: string;
+    type?: string;
     genre?: string;
     page?: number;
     limit?: number;
@@ -16,7 +16,7 @@ const getProducts = async (query: Query) => {
         url: URL,
         query: {
             query: query.query,
-            category: query.category,
+            type: query.type,
             genre: query.genre,
             page: query.page,
             limit: query.limit
