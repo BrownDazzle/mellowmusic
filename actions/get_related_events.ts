@@ -4,7 +4,7 @@ import qs from "query-string";
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/related`;
 
 interface Query {
-    category?: string;
+    type?: string;
     eventId?: string;
     page?: number;
     limit?: number;
@@ -14,7 +14,7 @@ const getRelatedEvents = async (query: Query) => {
     const url = qs.stringifyUrl({
         url: URL,
         query: {
-            category: query.category,
+            type: query.type,
             eventId: query.eventId,
             page: query.page,
             limit: query.limit

@@ -24,7 +24,6 @@ const CategoryDetails = async ({ params, searchParams }: SearchParamProps) => {
     const category = 'Music';
 
     const events = await getProducts({
-        category,
         page,
         limit: 6
     })

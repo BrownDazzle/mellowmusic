@@ -29,7 +29,7 @@ export async function generateMetadata(
     return {
         title: event?.title,
         description: event?.description,
-        keywords: [event?.category, event?.genre.name]
+        keywords: [event?.type, event?.genre.name]
     }
 }
 
@@ -42,7 +42,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
     const event = await getProduct(params.id);
 
     const relatedEvents = await getRelatedEvents({
-        category: event?.category,
+        type: event?.type,
         eventId: event?._id,
         page: page,
     })
