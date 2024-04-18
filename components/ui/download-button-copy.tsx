@@ -51,12 +51,12 @@ const DownloadButtonCopy = ({ url, title }: DownloadUrl) => {
 
     return (
         <button
-            className="bg-blue-500 item-center hover:scale-110 transition hover:cursor-pointer text-white font-bold rounded focus:outline-none focus:shadow-outline "
+            className="bg-slate-900 item-center hover:scale-110 transition hover:cursor-pointer text-white font-bold rounded focus:outline-none focus:shadow-outline "
             onClick={handleDownload}
         >
             {loading ? (
                 <Loader size={25} />
-            ) : (<HiDownload size={30} className='bg-blue-500 rounded-full' />)}
+            ) : (<HiDownload size={28} className='bg-slate-900 rounded-full' />)}
         </button>
     );
 };

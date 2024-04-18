@@ -28,6 +28,7 @@ export default async function Home({ searchParams }: SearchParamProps) {
     limit: 6
   })
 
+
   return (
     <div className='w-full pt-12'>
       <section className="bg-primary-50 bg-dotted-pattern bg-contain md:h-[50vh] h-[40vh]">

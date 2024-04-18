@@ -96,7 +96,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
                                     <GoDotFill />
                                     {event?.views >= 1 ? (<p className="p-medium-14 p-medium-18 text-grey-500">{formatViews(event?.views)} views</p>) : null}
                                 </div>
-                                <p className="p-medium-16 lg:p-regular-18">{event?.description}</p>
+                                <p className="p-regular-16 font-semibold">{event?.description}</p>
                                 {/*<p className="p-medium-18 ml-2 mt-2 sm:mt-0">
                 by{' '}
                 <span className="text-primary-500">{event?.organizer.firstName} {event?.organizer.lastName}</span>
@@ -122,7 +122,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
             </section>
 
             {/* EVENTS with the same category */}
-            <section className="wrapper flex flex-col gap-8 md:gap-12">
+            <section className="wrapper flex flex-col gap-8 md:gap-12 mt-10">
                 {/*<h2 className="h2-bold">Related {event?.category === "Video" ? `${event?.category}s` : event?.category}</h2>*/}
 
                 <Collection

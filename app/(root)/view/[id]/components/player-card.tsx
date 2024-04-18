@@ -83,7 +83,7 @@ const PlayerCard: React.FC<PlayerCard> = ({
     };
 
     return (
-        <div className="flex gap-2 group rounded-xl shadow-md p-3 space-y-1 w-full h-full max-h-[100px] bg-blue-500 my-2">
+        <div className="flex gap-2 group rounded-xl shadow-md p-3 space-y-1 w-full h-full max-h-[100px] bg-slate-900 my-2">
             {/* Image & actions */}
 
             <Image
@@ -95,23 +95,18 @@ const PlayerCard: React.FC<PlayerCard> = ({
             />
             {/* Description */}
             <div className="w-full flex flex-col gap-3 justify-between mr-2">
-                <div className="flex flex-row justify-between cursor-pointer gap-5">
-
-                    <Seekbar
-                        value={appTime}
-                        min={0}
-                        max={duration}
-                        onInput={(event: any) => setSeekTime(event.target.value)}
-                        setSeekTime={setSeekTime}
-                        appTime={appTime}
-                    />
-                    <PlayPause
-                        isPlaying={isPlaying}
-                        activeSong={activeSong}
-                        song={song}
-                        handlePause={handlePauseClick}
-                        handlePlay={handlePlayClick}
-                    />
+                <div className="w-full flex flex-row justify-between cursor-pointer gap-5">
+                    <VolumeBar value={volume} min={0} max={1} onChange={(event: any) => setVolume(event.target.value)} setVolume={setVolume} />
+                    <div className="flex flex-row justify-between cursor-pointer gap-3">
+                        <PlayPause
+                            isPlaying={isPlaying}
+                            activeSong={activeSong}
+                            song={song}
+                            handlePause={handlePauseClick}
+                            handlePlay={handlePlayClick}
+                        />
+                        <DownloadButtonCopy url={song.audioUrl} title={song.title} />
+                    </div>
                 </div>
                 <Player
                     activeSong={activeSong}
@@ -125,8 +120,15 @@ const PlayerCard: React.FC<PlayerCard> = ({
                     onLoadedData={(event: any) => setDuration(event.target.duration)}
                 />
                 <div className="w-full flex flex-row xs:gap-2 items-center justify-between mr-2">
-                    <VolumeBar value={volume} min={0} max={1} onChange={(event: any) => setVolume(event.target.value)} setVolume={setVolume} />
-                    <DownloadButtonCopy url={song.audioUrl} title={song.title} />
+                    <Seekbar
+                        value={appTime}
+                        min={0}
+                        max={duration}
+                        onInput={(event: any) => setSeekTime(event.target.value)}
+                        setSeekTime={setSeekTime}
+                        appTime={appTime}
+                    />
+
                 </div>
 
             </div>

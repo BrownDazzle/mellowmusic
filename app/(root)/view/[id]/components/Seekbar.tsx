@@ -15,15 +15,15 @@ const Seekbar: React.FC<SeekbarProps> = ({ value, min, max, onInput, setSeekTime
   const getTime = (time: number) => `${Math.floor(time / 60)}:${(`0${Math.floor(time % 60)}`).slice(-2)}`;
 
   return (
-    <div className="flex flex-row items-center">
+    <div className="flex flex-row items-center w-full">
       <button
         type="button"
         onClick={() => setSeekTime(appTime - 5)}
-        className="lg:mr-4 text-white"
+        className="lg:mr-4 text-white text-sm"
       >
         -
       </button>
-      <p className="text-white">{value === 0 ? '0:00' : getTime(value)}</p>
+      <p className="text-white text-xs">{value === 0 ? '0:00' : getTime(value)}</p>
       <input
         type="range"
         step="any"
@@ -33,11 +33,11 @@ const Seekbar: React.FC<SeekbarProps> = ({ value, min, max, onInput, setSeekTime
         onInput={onInput}
         className=" w-full h-1 mx-4 2xl:mx-6 rounded-lg"
       />
-      <p className="text-white">{max === 0 ? '0:00' : getTime(max)}</p>
+      <p className="text-white text-xs">{max === 0 ? '0:00' : getTime(max)}</p>
       <button
         type="button"
         onClick={() => setSeekTime(appTime + 5)}
-        className="hidden lg:ml-4 lg:block text-white"
+        className="hidden lg:ml-4 lg:block text-white text-sm"
       >
         +
       </button>

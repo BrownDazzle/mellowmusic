@@ -27,7 +27,7 @@ const Collection = ({
   const [category, setCategory] = useState<string | null>("");
   const { genreListId } = useSelector((state: any) => state.player);
   const { activeSong, isPlaying } = useSelector((state: any) => state.player);
-
+  console.log("DATA__", data)
   return (
     <>
       <div className='w-full'>
