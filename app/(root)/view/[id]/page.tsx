@@ -40,7 +40,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
     //console.log("COUNT_PAGE", count)
     //await getViewsCount(params.id);
     const event = await getProduct(params.id);
-
+    console.log("Data_OH", event)
     const relatedEvents = await getRelatedEvents({
         type: event?.type,
         eventId: event?._id,

@@ -35,7 +35,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ image, title, href, selecte
                     <img
                         src={image}
                         alt={title}
-                        className="relative object-cover object-center h-full w-full opacity-80 hover:opacity-100 transition-opacity duration-300"
+                        className="relative object-cover object-center overflow-hidden h-full w-full opacity-80 hover:opacity-100 transition-opacity duration-300"
                     />
                 </div>
                 {/* Overlay */}
@@ -47,7 +47,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ image, title, href, selecte
                     {/* Category Description */}
                     {/* Explore Button */}
 
-                    <p className="mt-4 bg-white text-blue-900 hover:bg-blue-400 mx-2 py-1 px-2 rounded-full transition duration-300 ease-in-out transform hover:scale-105 text-sm font-semibold">{title}</p>
+                    <p className="flex flex-row w-full justify-center mt-4 bg-white text-blue-900 hover:bg-blue-400 mx-2 py-1 px-2 rounded-full transition duration-300 ease-in-out transform hover:scale-105 text-sm font-semibold">{title}</p>
                 </div>
             </div>
         </>
