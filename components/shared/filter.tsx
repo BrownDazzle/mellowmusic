@@ -39,7 +39,7 @@ const Filter = ({ setCategory, setUpdateData, data }: SlideProps) => {
 
     const [allData, setAllData] = useState<IEvent[]>(data);
     const [categories, setCategories] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState<string>("");
+    const [selectedCategory, setSelectedCategory] = useState<string>("Latest");
 
     const onSelectCategory = (category: string) => {
         if (category === "Single") {
@@ -48,11 +48,12 @@ const Filter = ({ setCategory, setUpdateData, data }: SlideProps) => {
             setCategory(category);
         }
         setSelectedCategory(category)
-        if (category) {
+        if (category && category !== "Latest") {
             const filteredData = allData.filter((c) => c.type === category);
             setUpdateData(filteredData);
         } else {
             setUpdateData(allData);
+            setSelectedCategory("Latest")
         }
     }
 
@@ -60,8 +61,9 @@ const Filter = ({ setCategory, setUpdateData, data }: SlideProps) => {
 
     return (
         <div className='flex flex-row gap-3 items-center pb-5 '>
-            <h3 className={cn(`font-bold text-1xl md:text-2xl text-black`)}>Latest</h3>
             <div className={cn(`w-auto max-w-200 h-auto rounded-full flex items-center cursor-pointer mr-4 ${!selectedCategory && "border-b-[3px] border-r-[1px] border-slate-950"}`)}>
+                <p onClick={() => onSelectCategory("Latest")} className={`${selectedCategory && 'text-primary-500'
+                    } flex-center whitespace-nowrap font-semibold bg-white text-sm md:text-lg rounded-md px-3 py-1 ${selectedCategory === "Latest" ? 'border-b-[3px] border-r-[1px] border-slate-950 text-slate-700' : 'bg-transparent text-slate-900'}  pr-2`}>Latest</p>
                 <p onClick={() => onSelectCategory("Single")} className={`${selectedCategory && 'text-primary-500'
                     } flex-center whitespace-nowrap font-semibold bg-white text-sm md:text-lg rounded-md px-3 py-1 ${selectedCategory === "Single" ? 'border-b-[3px] border-r-[1px] border-slate-950 text-slate-700' : 'bg-transparent text-slate-900'}  pr-2`}>Songs</p>
                 <p onClick={() => onSelectCategory("Video")} className={`${selectedCategory && 'text-primary-500'

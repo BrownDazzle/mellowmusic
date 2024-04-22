@@ -125,6 +125,15 @@ export type Event = {
   category: string
 }
 
+export type Track = {
+  id: string,
+  artist: string,
+  audioUrl: string,
+  imageUrl: string,
+  desc: string,
+  index: number,
+  title: string,
+}
 // ====== CATEGORY PARAMS
 export type CreateCategoryParams = {
   categoryName: string

@@ -27,7 +27,7 @@ const Collection = ({
   const [category, setCategory] = useState<string | null>("");
   const { genreListId } = useSelector((state: any) => state.player);
   const { activeSong, isPlaying } = useSelector((state: any) => state.player);
-  console.log("DATA__", data)
+
   return (
     <>
       <div className='w-full'>
@@ -46,7 +46,7 @@ const Collection = ({
             })}
           </ul>
           <div className='flex justify-end pr-5 w-full'>
-            {category ? (<MoreButton category={category} />) : null}
+            {category && category !== "Latest" ? (<MoreButton category={category} />) : null}
           </div>
           {totalPages > 1 && (
             <Pagination page={page} totalPages={totalPages} />

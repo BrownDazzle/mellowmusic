@@ -3,7 +3,7 @@ import { IEvent } from '@/types';
 import React from 'react';
 
 interface TrackProps {
-  activeSong: IEvent | null;
+  activeSong: any | null;
   isPlaying: boolean;
   isActive: boolean;
 }

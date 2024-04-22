@@ -14,7 +14,7 @@ import { Metadata } from 'next';
 import getViewsCount from '@/actions/views_count';
 import ActiveSong from '@/components/ui/active-song';
 import SongCard from '@/components/ui/song-card';
-import AlbumCard from '@/components/ui/album-cars';
+import AlbumCard from '@/app/(root)/view/[id]/components/album-cars';
 import PlayerCard from '@/app/(root)/view/[id]/components/player-card';
 
 export async function generateMetadata(
@@ -40,7 +40,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
     //console.log("COUNT_PAGE", count)
     //await getViewsCount(params.id);
     const event = await getProduct(params.id);
-    console.log("Data_OH", event)
+
     const relatedEvents = await getRelatedEvents({
         type: event?.type,
         eventId: event?._id,
@@ -109,7 +109,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
                                     )}
 
                                     {event?.albumFiles && (event?.albumFiles.map((file: any, i: number) => (
-                                        <AlbumCard song={{ audioUrl: file.url, imageUrl: event?.imageUrl, title: file.name, artist: event?.artist }} i={i} data={event?.albumFiles} key={i} />
+                                        <AlbumCard song={{ id: event?._id, audioUrl: file.url, imageUrl: event?.imageUrl, desc: event?.description, title: file.name, artist: event?.artist, index: i }} i={i} data={event?.albumFiles} key={i} />
                                     ))
                                     )}
                                 </div>
@@ -133,7 +133,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
                     totalPages={relatedEvents?.totalPages}
                 />
             </section>
-            <ActiveSong />
+
         </>
     )
 }

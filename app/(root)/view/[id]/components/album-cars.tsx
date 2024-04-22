@@ -17,19 +17,25 @@ import VolumeBar from "@/app/(root)/view/[id]/components/VolumeBar";
 import Player from '@/app/(root)/view/[id]/components/Player';
 import AudioPlayer from './album-player';
 
-interface PlayerCard {
-    song: any,
+interface AlbumCard {
+    song: Track,
     data?: any,
+    i: number
 }
 
-const PlayerCard: React.FC<PlayerCard> = ({
-    song
+const AlbumCard: React.FC<AlbumCard> = ({
+    song, data, i
 }) => {
     const { activeSong, currentSongs, currentIndex, isActive } = useSelector((state: any) => state.player);
 
     return (
         <div className="flex gap-2 group rounded-xl shadow-md p-3 space-y-1 w-full h-full max-h-[120px] bg-slate-900 my-2">
+            {/* Image & actions */}
 
+            <p
+                className="flex justify-center items-center h-full w-50 px-3 bg-white text-slate-700 text-3xl font-bold rounded-sm"
+
+            >{i + 1}</p>
             {/* Description */}
             <div className="w-full flex flex-col gap-3 justify-between mr-2">
                 <p
@@ -45,4 +51,4 @@ const PlayerCard: React.FC<PlayerCard> = ({
     );
 }
 
-export default PlayerCard;
+export default AlbumCard;
