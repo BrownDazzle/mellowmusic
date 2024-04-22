@@ -9,11 +9,7 @@ import { SearchParamProps } from '@/types'
 import Image from 'next/image';
 import getProduct from '@/actions/get_event';
 import getRelatedEvents from '@/actions/get_related_events';
-import getEvents from '@/actions/get_events';
 import { Metadata } from 'next';
-import getViewsCount from '@/actions/views_count';
-import ActiveSong from '@/components/ui/active-song';
-import SongCard from '@/components/ui/song-card';
 import AlbumCard from '@/app/(root)/view/[id]/components/album-cars';
 import PlayerCard from '@/app/(root)/view/[id]/components/player-card';
 
