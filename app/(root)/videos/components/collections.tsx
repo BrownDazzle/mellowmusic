@@ -46,7 +46,7 @@ const Collection = ({
 
                             return (
                                 <li key={event._id} className="flex justify-center">
-                                    <VideoCard video={event} />
+                                    {event?.videoUrl && <VideoCard video={event} />}
                                 </li>
                             )
                         })}

@@ -208,6 +208,7 @@ export interface IEvent extends Document {
   imageUrl: string;
   audioUrl?: string,
   videoUrl?: string,
+  albumFiles: [],
   views: number;
   type: string
   isFree: boolean;

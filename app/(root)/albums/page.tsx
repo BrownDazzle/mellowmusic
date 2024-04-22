@@ -16,11 +16,11 @@ import getProducts from '@/actions/get_all_events';
 import getCategory from '@/actions/get_categories';
 import Container from '@/components/ui/Container';
 
+export const revalidate = 10
+
 const CategoryDetails = async ({ params, searchParams }: SearchParamProps) => {
     const page = Number(searchParams?.page) || 1;
-    //const count = await getViewsCount(params.id);
-    //console.log("COUNT_PAGE", count)
-    await getViewsCount(params.id);
+
     const category = 'Music';
 
     const events = await getProducts({
@@ -35,7 +35,7 @@ const CategoryDetails = async ({ params, searchParams }: SearchParamProps) => {
                     <div className='basis-1/4 pt-20'>
                         Ad Space
                     </div>
-                    <div className='md:basis-3/4 border-x-[0.5px] px-2'>
+                    <div className='w-full basis-full md:basis-3/4 md:border-l-[0.5px] px-2'>
                         <>
                             <Collection
                                 data={events?.data}

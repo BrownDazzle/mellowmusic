@@ -44,7 +44,7 @@ const SearchCard: React.FC<SearchCard> = ({
                     </div>
                     {/* Price & Reiew */}
                     <div className="flex items-center justify-between">
-                        {event.category.name === "Video" ? (<FcFilmReel />) : (<TbMusicStar />)}
+                        {event.type === "Video" ? (<FcFilmReel />) : (<TbMusicStar />)}
                     </div>
                 </div>
             </div>

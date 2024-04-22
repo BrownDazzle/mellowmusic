@@ -27,14 +27,14 @@ const SearchComponent: React.FC = () => {
             (item: any) =>
                 regex.test(item.artist) ||
                 regex.test(item.title) ||
-                regex.test(item.category)
+                regex.test(item.type)
         );
     };
 
     const handleSearch = (query: string) => {
         setSearchQuery(query);
         const filteredProducts = filterPrompts(query);
-
+        console.log("Filter_Data", filteredProducts)
         setSearchResults(filteredProducts);
     };
 

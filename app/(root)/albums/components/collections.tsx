@@ -45,7 +45,7 @@ const Collection = ({
 
                             return (
                                 <li key={event._id} className="flex justify-center">
-                                    {event?.audioUrl && <RelatedCard event={event} />}
+                                    {event?.albumFiles.length >= 1 && <RelatedCard event={event} />}
                                 </li>
                             )
                         })}

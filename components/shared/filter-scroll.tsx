@@ -48,7 +48,7 @@ const FilterScroll = ({ setCategory, setUpdateData, data }: SlideProps) => {
 
     const [allData, setAllData] = useState<IEvent[]>(data);
     const [categories, setCategories] = useState<IGenre[]>([]);
-    const [selectedCategory, setSelectedCategory] = useState<string>(categories[0]?.name);
+    const [selectedCategory, setSelectedCategory] = useState<string>("All");
 
     const onSelectCategory = (category: string) => {
         setCategory(category)

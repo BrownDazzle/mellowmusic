@@ -25,7 +25,7 @@ const RelatedCard: React.FC<RelatedCard> = ({
 
 
     return (
-        <div onClick={handleClick} className="flex gap-2 bg-white cursor-pointer rounded-xl shadow-md p-3 space-b-4 w-full max-h-[110px]">
+        <div onClick={handleClick} className="flex gap-2 bg-white cursor-pointer rounded-xl shadow-md p-3 space-b-4 w-full max-h-[110px] overflow-hidden">
             {/* Image & actions */}
 
             <Image
@@ -39,8 +39,8 @@ const RelatedCard: React.FC<RelatedCard> = ({
             <div className="flex flex-col px-2 gap-2 justify-between items-center w-full py-2">
                 <div className="w-full">
                     <div>
-                        <p className={cn(`font-semibold text-sm md:text-md text-slate-900`)}>{event.title}</p>
-                        <p className="text-sm text-gray-500">{event.artist}</p>
+                        <p className={cn(`truncate font-semibold text-sm md:text-md text-slate-900`)}>{event.title}</p>
+                        <p className="truncate text-sm text-gray-500">{event.artist}</p>
                     </div>
                     {/* Price & Reiew */}
                     <div className="flex items-center justify-between">

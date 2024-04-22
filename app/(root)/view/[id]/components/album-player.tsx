@@ -1,6 +1,7 @@
 "use client"
 
-import React, { useRef, useState } from 'react';
+import { Loader } from '@/components/ui/loader';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaPauseCircle, FaPlayCircle } from 'react-icons/fa';
 
 interface AudioPlayerProps {
@@ -10,16 +11,29 @@ interface AudioPlayerProps {
 const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
     const audioRef = useRef<HTMLAudioElement>(null);
     const [isPlaying, setIsPlaying] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [progress, setProgress] = useState(0);
 
-    const togglePlay = () => {
+
+    useEffect(() => {
+        const loader = async () => {
+            const response = await fetch(src);
+            response.ok && setIsLoading(true)
+        }
+        loader()
+    }, [])
+
+    const togglePlay = async () => {
         if (audioRef.current) {
+
             if (isPlaying) {
                 audioRef.current.pause();
             } else {
                 audioRef.current.play();
+                setIsLoading(false)
             }
             setIsPlaying(!isPlaying);
+
         }
     };
 
@@ -64,6 +78,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
                     />
                 )}
             </button>
+
             <input
                 type="range"
                 min="0"
@@ -72,6 +87,7 @@ const AudioPlayer: React.FC<AudioPlayerProps> = ({ src }) => {
                 onChange={handleSeek}
                 className="slider appearance-none w-full max-w-48 h-2 bg-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-800"
             />
+
         </div>
     );
 };
