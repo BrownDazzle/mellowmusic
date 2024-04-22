@@ -118,7 +118,7 @@ shadow-white
                         <p
                             className="flex justify-center items-center h-full w-full text-white text-xs xs:text-[12px] font-bold rounded-sm"
 
-                        >Search <span className='hidden sm:block'>results</span></p>
+                        >Search <span className='hidden sm:block ml-2'>results</span></p>
                     </div>
                     <hr className='h-[0.5px] bg-slate-700 w-full' />
                 </div>
