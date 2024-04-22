@@ -111,12 +111,15 @@ shadow-white
                 />
                 <div className='w-full flex items-center justify-center'>
                     <hr className='h-[0.5px] bg-slate-700 w-full' />
-                    <button
-                        className="w-full px-4 py-2 bg-blue-500 font-semibold text-sm md:text-md text-white rounded-full"
+                    <div
+                        className="flex flex-row justify-center w-full px-2 py-2 bg-blue-500 font-semibold text-sm md:text-md text-white rounded-full"
                         onClick={() => handleSearch(searchQuery)}
                     >
-                        Search result
-                    </button>
+                        <p
+                            className="flex justify-center items-center h-full w-full text-white text-xs xs:text-[12px] font-bold rounded-sm"
+
+                        >Search results</p>
+                    </div>
                     <hr className='h-[0.5px] bg-slate-700 w-full' />
                 </div>
             </div>
